@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getStatus } from 'redux/tracking/trackOperations';
 
 const initialState = {
-    data: null,
+    currentDocument: null,
     isLoading: false,
-    error: null
+    error: null,
+    history: []
 };
 
 const authSlice = createSlice({
@@ -18,8 +19,9 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getStatus.fulfilled, (state, action) => {
-                state.data = action.payload;
+                state.currentDocument = action.payload;
                 state.isLoading = false;
+                state.history.push(action.payload.Number)
             }).addCase(getStatus.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;

@@ -28,7 +28,7 @@ export const getStatus = createAsyncThunk(
         return thunkAPI.rejectWithValue(data.errors[0]);
       }
 
-      return data.data;
+      return data.data[0];
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

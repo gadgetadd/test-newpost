@@ -1,19 +1,12 @@
 import { Box, Button, Grid, TextField } from '@mui/material';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getStatus } from 'redux/tracking/trackOperations';
-export default function SearchForm() {
-  const [trackNumber, setTrackNumber] = useState('');
-  const dispatch = useDispatch();
+
+export default function SearchForm({ onSubmit, value }) {
+  const [trackNumber, setTrackNumber] = useState(value);
 
   const inputHandler = e => {
     const { value } = e.target;
     setTrackNumber(value);
-  };
-
-  const submitHandler = e => {
-    e.preventDefault();
-    dispatch(getStatus(trackNumber));
   };
 
   return (
@@ -24,14 +17,14 @@ export default function SearchForm() {
       }}
       noValidate
       autoComplete="off"
-      onSubmit={submitHandler}
+      onSubmit={onSubmit}
     >
       <Grid container spacing={1}>
         <Grid xs={8} item>
           <TextField
             fullWidth
             size="small"
-            id="outlined-basic"
+            id="trackNumber"
             label="Outlined"
             variant="standard"
             value={trackNumber}

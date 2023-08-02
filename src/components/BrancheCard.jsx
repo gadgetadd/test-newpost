@@ -1,7 +1,7 @@
 import { ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { createLocationLink } from 'helpers/createLocationLink';
 
-export default function PostOfficeCard() {
+export default function BrancheCard() {
   return (
     <ListItem>
       <ListItemButton

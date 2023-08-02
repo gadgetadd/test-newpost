@@ -11,7 +11,7 @@ export default function SearchForm() {
       autoComplete="off"
     >
       <Grid container spacing={1}>
-        <Grid xs={6} item>
+        <Grid xs={8} item>
           <TextField
             fullWidth
             size="small"
@@ -21,7 +21,7 @@ export default function SearchForm() {
             variant="standard"
           />
         </Grid>
-        <Grid xs={6} item>
+        <Grid xs={4} item>
           <Button fullWidth variant="contained">
             Отримати статус ТТН
           </Button>

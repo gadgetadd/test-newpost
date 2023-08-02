@@ -10,9 +10,9 @@ export default function Details() {
         backgroundColor: 'background.main',
       }}
     >
-      <Typography>Статус доставки: Одержано</Typography>
-      <Typography>Відправлено: Відділеня 1</Typography>
-      <Typography>Доставлено: Відділення 3</Typography>
+      <Typography gutterBottom>Статус доставки: Одержано</Typography>
+      <Typography gutterBottom>Відправлено: Відділеня 1</Typography>
+      <Typography gutterBottom>Доставлено: Відділення 3</Typography>
     </Box>
   );
 }

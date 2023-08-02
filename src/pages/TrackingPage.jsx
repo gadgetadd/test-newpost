@@ -8,8 +8,10 @@ export default function TrackingPage() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1}>
+        <Grid xs={12} item>
+        <SearchForm />
+        </Grid>
         <Grid xs={8} item>
-          <SearchForm />
           <Details />
         </Grid>
         <Grid xs={4} item>

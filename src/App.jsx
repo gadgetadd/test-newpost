@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import SharedHeader from 'shared/SharedHeader';
 
 const TrackingPage = lazy(() => import('pages/TrackingPage'));
-const PostOfficePage = lazy(() => import('pages/PostOfficePage'));
+const PostOfficePage = lazy(() => import('pages/BranchesPage'));
 
 export default function App() {
   return (

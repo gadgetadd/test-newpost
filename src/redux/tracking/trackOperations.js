@@ -1,0 +1,35 @@
+import axios from "axios";
+
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+
+const { REACT_APP_API_KEY, REACT_APP_BASE_URL } = process.env;
+
+export const getWarehouses = createAsyncThunk(
+  'tracking/getStatus',
+  async (DocumentNumber, thunkAPI) => {
+    const fetchParams = {
+      apiKey: REACT_APP_API_KEY,
+      modelName: "TrackingDocument",
+      calledMethod: "getStatusDocuments",
+      methodProperties: {
+        Documents: [
+          {
+            DocumentNumber,
+          },
+        ],
+      },
+    };
+
+    try {
+      const { data } = await axios.post(REACT_APP_BASE_URL, fetchParams);
+      if (!data.success) {
+        return thunkAPI.rejectWithValue(data.errors[0]);
+      }
+
+      return data.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

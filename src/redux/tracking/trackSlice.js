@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getStatus } from './authOperations';
+import { getStatus } from 'redux/tracking/trackOperations';
 
 const initialState = {
     data: null,
@@ -27,7 +27,7 @@ const authSlice = createSlice({
             .addCase(getStatus.pending, (state) => {
                 state.isLoading = true;
             })
-            
+
     }
 })
 

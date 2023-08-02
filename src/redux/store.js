@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import trackingReducer from 'redux/tracking/trackSlice'
 // import {
 //     persistStore,
 //     persistReducer,
@@ -20,8 +21,8 @@ import { configureStore } from '@reduxjs/toolkit'
 export const store = configureStore({
     reducer: {
         // auth: persistReducer(authPersistConfig, authReducer),
-       
-        // filter: filterReducer,
+
+        tracking: trackingReducer,
         // modal: modalReducer,
     },
     // middleware: (getDefaultMiddleware) =>

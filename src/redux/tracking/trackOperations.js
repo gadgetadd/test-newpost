@@ -5,9 +5,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const { REACT_APP_API_KEY, REACT_APP_BASE_URL } = process.env;
 
-export const getWarehouses = createAsyncThunk(
+export const getStatus = createAsyncThunk(
   'tracking/getStatus',
   async (DocumentNumber, thunkAPI) => {
+    console.log(REACT_APP_BASE_URL);
     const fetchParams = {
       apiKey: REACT_APP_API_KEY,
       modelName: "TrackingDocument",

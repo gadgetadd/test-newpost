@@ -1,0 +1,1 @@
+export const selectTrackingData = state => state.tracking.data;

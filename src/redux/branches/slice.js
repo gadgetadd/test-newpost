@@ -21,7 +21,6 @@ const slice = createSlice({
                 state.branches.isLoading = false;
             }).addCase(getWarehouses.rejected, (state, action) => {
                 state.branches.isLoading = false;
-
             })
             .addCase(getWarehouses.pending, (state) => {
                 state.branches.isLoading = true;

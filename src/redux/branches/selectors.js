@@ -11,5 +11,5 @@ export const selectSettlements = createSelector(
 
 
 export const selectSettlementsLoading = state => state.branches.settlements.isLoading;
-// export const selectIsTrackLoading = state => state.tracking.isLoading;
+export const selectBranches = state => state.branches.branches.data;
 // export const selectError = state => state.tracking.error;

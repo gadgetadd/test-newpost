@@ -24,8 +24,7 @@ export const getWarehouses = createAsyncThunk(
       if (!data.success) {
         return thunkAPI.rejectWithValue(data.errors[0]);
       }
-
-      return data.data;
+          return data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
 
@@ -39,11 +38,12 @@ export const getSettlements = createAsyncThunk(
     const fetchParams = {
       apiKey: REACT_APP_API_KEY,
       modelName: 'Address',
-      calledMethod: 'getSettlements',
+      calledMethod: 'getCities',
       methodProperties: {
         FindByString,
         Page: 1,
         Limit: 100,
+        Warehouse: 1
       },
     };
 

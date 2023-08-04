@@ -1,11 +1,11 @@
-import PostOfficeCard from 'components/BrancheCard';
-import BrancheForm from 'components/BrancheForm';
+import BranchesList from 'components/BranchesList';
+import BrancheForm from 'components/BranchForm';
 
 export default function BranchesPage() {
   return (
     <>
       <BrancheForm />
-      <PostOfficeCard />
+      <BranchesList />
     </>
   );
 }

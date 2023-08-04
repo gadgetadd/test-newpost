@@ -4,7 +4,7 @@ import Error from 'components/Error';
 import History from 'components/History';
 import SearchForm from 'components/SearchForm';
 import { useSelector } from 'react-redux';
-import { selectError, selectTrackingData } from 'redux/selectors';
+import { selectError, selectTrackingData } from 'redux/tracking/selectors';
 
 export default function TrackingPage() {
   const error = useSelector(selectError);
@@ -16,11 +16,11 @@ export default function TrackingPage() {
         <Grid xs={12} item>
           <SearchForm />
         </Grid>
-        <Grid xs={8} item>
+        <Grid sm={8} xs={12} item>
           {error && <Error error={error} />}
           {data && <Details data={data} />}
         </Grid>
-        <Grid xs={4} item>
+        <Grid sm={4} xs={12} item>
           <History />
         </Grid>
       </Grid>

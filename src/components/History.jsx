@@ -2,15 +2,17 @@ import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { selectHistory } from 'redux/selectors';
-import { clearHistory } from 'redux/tracking/trackSlice';
+import { selectHistory } from 'redux/tracking/selectors';
+import { clearHistory } from 'redux/tracking/slice';
 
 export default function History() {
   const history = useSelector(selectHistory);
   const [, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
+  const matches = useMediaQuery('(min-width:670px)');
 
   const clickHandler = num => {
     setSearchParams({ q: num });
@@ -20,7 +22,7 @@ export default function History() {
     <Box
       sx={{
         p: 2,
-        borderLeft: 1,
+        borderLeft: matches ? 1 : 'none',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',

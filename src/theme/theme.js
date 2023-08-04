@@ -15,5 +15,14 @@ export const theme = createTheme({
             fontFamily: "Montserrat Subrayada",
             fontWeight: 700
         }
+    },
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 670,
+            md: 900,
+            lg: 1200,
+            xl: 1536,
+        }
     }
 });

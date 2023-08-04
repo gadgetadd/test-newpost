@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getSettlements, getWarehouses } from './authOperations';
+import { getSettlements, getWarehouses } from './operations';
 
 const initialState = {
+    current: '',
     branches: { data: [], isLoading: false },
     settlements: { data: [], isLoading: false },
-    error: null
 };
 
-const authSlice = createSlice({
+const slice = createSlice({
     name: 'branches',
     initialState,
     reducers: {
-        clearError(state) {
-            state.error = null
+        setCurrent(state, action) {
+            state.current = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -22,24 +22,22 @@ const authSlice = createSlice({
                 state.branches.isLoading = false;
             }).addCase(getWarehouses.rejected, (state, action) => {
                 state.branches.isLoading = false;
-                state.error = action.payload;
             })
             .addCase(getWarehouses.pending, (state) => {
                 state.branches.isLoading = true;
             })
             .addCase(getSettlements.fulfilled, (state, action) => {
-                state.branches.data = action.payload;
-                state.branches.isLoading = false;
+                state.settlements.data = action.payload;
+                state.settlements.isLoading = false;
             }).addCase(getSettlements.rejected, (state, action) => {
-                state.branches.isLoading = false;
-                state.error = action.payload;
+                state.settlements.isLoading = false;
             })
             .addCase(getSettlements.pending, (state) => {
-                state.branches.isLoading = true;
+                state.settlements.isLoading = true;
             })
     }
 })
 
-export const { clearError } = authSlice.actions
+export const { setCurrent } = slice.actions
 
-export default authSlice.reducer;
+export default slice.reducer;

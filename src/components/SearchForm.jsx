@@ -3,9 +3,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { selectIsTrackLoading } from 'redux/selectors';
-import { getStatus } from 'redux/tracking/trackOperations';
-import { clearCurrent } from 'redux/tracking/trackSlice';
+import { getStatus } from 'redux/tracking/operations';
+import { selectIsTrackLoading } from 'redux/tracking/selectors';
+import { clearCurrent } from 'redux/tracking/slice';
 import { string } from 'yup';
 
 export default function SearchForm() {
@@ -61,7 +61,7 @@ export default function SearchForm() {
       onSubmit={handleSubmit}
     >
       <Grid container spacing={1}>
-        <Grid xs={8} item>
+        <Grid xs={12} sm={8} item>
           <TextField
             error={!isValid}
             color="secondary"
@@ -75,7 +75,7 @@ export default function SearchForm() {
             onChange={inputHandler}
           />
         </Grid>
-        <Grid xs={4} item>
+        <Grid xs={12} sm={4} item>
           <Button
             fullWidth
             type="submit"

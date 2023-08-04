@@ -4,8 +4,8 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { selectHistory } from 'redux/selectors';
-import { clearHistory } from 'redux/tracking/trackSlice';
+import { selectHistory } from 'redux/tracking/selectors';
+import { clearHistory } from 'redux/tracking/slice';
 
 export default function History() {
   const history = useSelector(selectHistory);

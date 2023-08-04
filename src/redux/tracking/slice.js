@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getStatus } from 'redux/tracking/trackOperations';
+import { getStatus } from 'redux/tracking/operations';
 
 const initialState = {
     currentDocument: null,
@@ -8,7 +8,7 @@ const initialState = {
     history: []
 };
 
-const authSlice = createSlice({
+const slice = createSlice({
     name: 'tracking',
     initialState,
     reducers: {
@@ -40,6 +40,6 @@ const authSlice = createSlice({
     }
 })
 
-export const { clearHistory, clearCurrent } = authSlice.actions
+export const { clearHistory, clearCurrent } = slice.actions
 
-export default authSlice.reducer;
+export default slice.reducer;

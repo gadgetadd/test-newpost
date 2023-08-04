@@ -4,7 +4,7 @@ import Error from 'components/Error';
 import History from 'components/History';
 import SearchForm from 'components/SearchForm';
 import { useSelector } from 'react-redux';
-import { selectError, selectTrackingData } from 'redux/selectors';
+import { selectError, selectTrackingData } from 'redux/tracking/selectors';
 
 export default function TrackingPage() {
   const error = useSelector(selectError);

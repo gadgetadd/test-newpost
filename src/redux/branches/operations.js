@@ -52,7 +52,6 @@ export const getSettlements = createAsyncThunk(
       if (!data.success) {
         return thunkAPI.rejectWithValue(data.errors[0]);
       }
-
       return data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

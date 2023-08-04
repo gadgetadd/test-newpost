@@ -10,7 +10,8 @@ import {
     persistStore,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import trackingReducer from 'redux/tracking/trackSlice';
+import trackingReducer from 'redux/tracking/slice';
+import branchesReducer from 'redux/branches/slice';
 
 const trackingPersistConfig = {
     key: 'tracking',
@@ -21,7 +22,7 @@ const trackingPersistConfig = {
 export const store = configureStore({
     reducer: {
         tracking: persistReducer(trackingPersistConfig, trackingReducer),
-        // modal: modalReducer,
+        branches: branchesReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

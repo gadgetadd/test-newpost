@@ -1,10 +1,10 @@
 import PostOfficeCard from 'components/BrancheCard';
-import SearchForm from 'components/SearchForm';
+import BrancheForm from 'components/BrancheForm';
 
 export default function BranchesPage() {
   return (
     <>
-      <SearchForm />
+      <BrancheForm />
       <PostOfficeCard />
     </>
   );

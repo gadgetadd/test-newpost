@@ -1,15 +1,16 @@
-import { Autocomplete, TextField } from '@mui/material';
+import { Autocomplete, Box, TextField } from '@mui/material';
 import { throttle } from 'lodash';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSettlements, getWarehouses } from 'redux/branches/operations';
 import {
+  selectCurrent,
   selectSettlements,
   selectSettlementsLoading,
 } from 'redux/branches/selectors';
+import { setCurrent } from 'redux/branches/slice';
 
 export default function BranchForm() {
-  const [search, setSearch] = useState('');
+  const current = useSelector(selectCurrent);
   const settlements = useSelector(selectSettlements);
   const isLoading = useSelector(selectSettlementsLoading);
   const dispatch = useDispatch();
@@ -19,28 +20,41 @@ export default function BranchForm() {
   }, 500);
 
   const submitHandler = (_, newValue) => {
-    dispatch(getWarehouses(newValue));
+    if (newValue) dispatch(getWarehouses(newValue));
   };
 
   const inputHandler = (_, newValue) => {
-    setSearch(newValue);
+    dispatch(setCurrent(newValue));
     throttledDispatch(newValue);
   };
 
   return (
-    <Autocomplete
-      disablePortal
-      id="combo-box-demo"
-      onChange={submitHandler}
-      inputValue={search}
-      onInputChange={inputHandler}
-      onOpen={() => {
-        dispatch(getSettlements(''));
+    <Box
+      sx={{
+        mt: 8,
+        mb: 4,
       }}
-      options={settlements}
-      loading={isLoading}
-      sx={{ width: 300 }}
-      renderInput={params => <TextField {...params} label="Населений пункт" />}
-    />
+    >
+      <Autocomplete
+        disablePortal
+        id="branches"
+        onChange={submitHandler}
+        inputValue={current}
+        onInputChange={inputHandler}
+        onOpen={() => {
+          dispatch(getSettlements(''));
+        }}
+        options={settlements}
+        loading={isLoading}
+        renderInput={params => (
+          <TextField
+            {...params}
+            label="Населений пункт"
+            variant="standard"
+            color="secondary"
+          />
+        )}
+      />
+    </Box>
   );
 }

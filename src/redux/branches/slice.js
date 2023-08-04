@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getSettlements, getWarehouses } from './operations';
 
 const initialState = {
+    current: '',
     branches: { data: [], isLoading: false },
     settlements: { data: [], isLoading: false },
 };
@@ -10,9 +11,9 @@ const slice = createSlice({
     name: 'branches',
     initialState,
     reducers: {
-        // clearError(state) {
-        //     state.error = null
-        // }
+        setCurrent(state, action) {
+            state.current = action.payload;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -37,6 +38,6 @@ const slice = createSlice({
     }
 })
 
-export const { clearError } = slice.actions
+export const { setCurrent } = slice.actions
 
 export default slice.reducer;

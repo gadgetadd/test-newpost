@@ -61,7 +61,7 @@ export default function SearchForm() {
       onSubmit={handleSubmit}
     >
       <Grid container spacing={1}>
-        <Grid xs={8} item>
+        <Grid xs={12} sm={8} item>
           <TextField
             error={!isValid}
             color="secondary"
@@ -75,7 +75,7 @@ export default function SearchForm() {
             onChange={inputHandler}
           />
         </Grid>
-        <Grid xs={4} item>
+        <Grid xs={12} sm={4} item>
           <Button
             fullWidth
             type="submit"

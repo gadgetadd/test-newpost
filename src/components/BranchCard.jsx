@@ -1,7 +1,7 @@
 import { ListItemButton, ListItemText } from '@mui/material';
 import { createLocationLink } from 'helpers/createLocationLink';
 
-export default function BrancheCard({ lat, long, name, phone }) {
+export default function BrancheCard({ lat, long, name, city }) {
   return (
     <ListItemButton
       href={createLocationLink(lat, long)}
@@ -10,10 +10,7 @@ export default function BrancheCard({ lat, long, name, phone }) {
       rel="noopener noreferrer"
       sx={{ p: 1 }}
     >
-      <ListItemText
-        primary={name}
-        secondary={phone === '' ? 'Номер телефону відсутній' : phone}
-      />
+      <ListItemText primary={name} secondary={city} />
     </ListItemButton>
   );
 }

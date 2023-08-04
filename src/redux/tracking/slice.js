@@ -36,7 +36,6 @@ const slice = createSlice({
             .addCase(getStatus.pending, (state) => {
                 state.isLoading = true;
             })
-
     }
 })
 

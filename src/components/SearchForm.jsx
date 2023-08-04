@@ -9,12 +9,12 @@ import { clearCurrent } from 'redux/tracking/slice';
 import { string } from 'yup';
 
 export default function SearchForm() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const search = searchParams.get('q') ?? '';
   const [trackNumber, setTrackNumber] = useState('');
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsTrackLoading);
   const [isValid, setValid] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const isLoading = useSelector(selectIsTrackLoading);
+  const search = searchParams.get('q') ?? '';
+  const dispatch = useDispatch();
 
   const trackNumberSchema = string().matches(/^\d{14}$/);
 

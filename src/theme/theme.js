@@ -20,9 +20,6 @@ export const theme = createTheme({
         values: {
             xs: 0,
             sm: 670,
-            md: 900,
-            lg: 1200,
-            xl: 1536,
         }
     }
 });

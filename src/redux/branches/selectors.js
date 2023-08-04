@@ -9,7 +9,6 @@ export const selectSettlements = createSelector(
     }
 );
 
-
 export const selectSettlementsLoading = state => state.branches.settlements.isLoading;
 export const selectBranches = state => state.branches.branches.data;
 export const selectCurrent = state => state.branches.current;

@@ -2,7 +2,6 @@ import axios from "axios";
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-
 const { REACT_APP_API_KEY, REACT_APP_BASE_URL } = process.env;
 
 export const getWarehouses = createAsyncThunk(
@@ -18,7 +17,6 @@ export const getWarehouses = createAsyncThunk(
         Limit: 100,
       },
     };
-
     try {
       const { data } = await axios.post(REACT_APP_BASE_URL, fetchParams);
       if (!data.success) {
@@ -27,7 +25,6 @@ export const getWarehouses = createAsyncThunk(
           return data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
-
     }
   }
 );
@@ -46,7 +43,6 @@ export const getSettlements = createAsyncThunk(
         Warehouse: 1
       },
     };
-
     try {
       const { data } = await axios.post(REACT_APP_BASE_URL, fetchParams);
       if (!data.success) {
@@ -55,7 +51,6 @@ export const getSettlements = createAsyncThunk(
       return data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
-
     }
   }
 );

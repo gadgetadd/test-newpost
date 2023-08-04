@@ -11,7 +11,7 @@ export default function BranchesList() {
         <BranchCard
           key={branch.Ref}
           name={branch.Description}
-          phone={branch.Phone}
+          city={branch.CityDescription}
           lat={branch.Latitude}
           long={branch.Longitude}
         />

@@ -1,7 +1,4 @@
-import { Box, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
+import { Box, Button, List, ListItemButton, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
@@ -9,10 +6,10 @@ import { selectHistory } from 'redux/tracking/selectors';
 import { clearHistory } from 'redux/tracking/slice';
 
 export default function History() {
-  const history = useSelector(selectHistory);
   const [, setSearchParams] = useSearchParams();
-  const dispatch = useDispatch();
+  const history = useSelector(selectHistory);
   const matches = useMediaQuery('(min-width:670px)');
+  const dispatch = useDispatch();
 
   const clickHandler = num => {
     setSearchParams({ q: num });
@@ -30,7 +27,6 @@ export default function History() {
       }}
     >
       <Typography variant="h4">Історія</Typography>
-
       {history.length > 0 ? (
         <>
           <List dense={true}>

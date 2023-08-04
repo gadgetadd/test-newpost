@@ -25,7 +25,7 @@ export default function SharedHeader() {
             <ButtonGroup
               color="inherit"
               variant="text"
-              aria-label="text button group"
+              aria-label="navigation"
             >
               <Button component={NavButton} to="/tracking">
                 Відстежити
@@ -38,7 +38,7 @@ export default function SharedHeader() {
         </Container>
       </AppBar>
       <Container>
-        <Suspense fallback={<></>}>
+        <Suspense fallback={null}>
           <Outlet />
         </Suspense>
       </Container>

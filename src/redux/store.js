@@ -1,35 +1,34 @@
-import { configureStore } from '@reduxjs/toolkit'
-// import {
-//     persistStore,
-//     persistReducer,
-//     FLUSH,
-//     REHYDRATE,
-//     PAUSE,
-//     PERSIST,
-//     PURGE,
-//     REGISTER,
-// } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import { configureStore } from '@reduxjs/toolkit';
+import {
+    FLUSH,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+    REHYDRATE,
+    persistReducer,
+    persistStore,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import trackingReducer from 'redux/tracking/trackSlice';
 
-// const authPersistConfig = {
-//     key: 'auth',
-//     storage,
-//     whitelist: ['token'],
-// };
+const trackingPersistConfig = {
+    key: 'tracking',
+    storage,
+    whitelist: ['history'],
+};
 
 export const store = configureStore({
     reducer: {
-        // auth: persistReducer(authPersistConfig, authReducer),
-       
-        // filter: filterReducer,
+        tracking: persistReducer(trackingPersistConfig, trackingReducer),
         // modal: modalReducer,
     },
-    // middleware: (getDefaultMiddleware) =>
-    //     getDefaultMiddleware({
-    //         serializableCheck: {
-    //             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    //         },
-    //     })
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        })
 })
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);

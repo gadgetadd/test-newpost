@@ -12,8 +12,11 @@ const authSlice = createSlice({
     name: 'tracking',
     initialState,
     reducers: {
-        clearError(state) {
-            state.error = null
+        clearHistory(state) {
+            state.history = []
+        },
+        clearCurrent(state) {
+            state.currentDocument = null
         }
     },
     extraReducers: (builder) => {
@@ -21,10 +24,14 @@ const authSlice = createSlice({
             .addCase(getStatus.fulfilled, (state, action) => {
                 state.currentDocument = action.payload;
                 state.isLoading = false;
-                state.history.push(action.payload.Number)
+                if (!state.history.includes(action.payload.Number)) {
+                    state.history.push(action.payload.Number)
+                }
+                state.error = null;
             }).addCase(getStatus.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
+                state.currentDocument = null;
             })
             .addCase(getStatus.pending, (state) => {
                 state.isLoading = true;
@@ -33,6 +40,6 @@ const authSlice = createSlice({
     }
 })
 
-export const { clearError } = authSlice.actions
+export const { clearHistory, clearCurrent } = authSlice.actions
 
 export default authSlice.reducer;

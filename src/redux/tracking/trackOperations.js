@@ -27,6 +27,9 @@ export const getStatus = createAsyncThunk(
       if (!data.success) {
         return thunkAPI.rejectWithValue(data.errors[0]);
       }
+      if (data.data[0].StatusCode === '3') {
+        return thunkAPI.rejectWithValue('Номер ТТН не знайдено');
+      }
 
       return data.data[0];
     } catch (e) {

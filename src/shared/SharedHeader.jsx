@@ -22,15 +22,11 @@ export default function SharedHeader() {
             <Typography variant="logo" component="div" sx={{ flexGrow: 1 }}>
               New Post
             </Typography>
-            <ButtonGroup
-              color="inherit"
-              variant="text"
-              aria-label="navigation"
-            >
+            <ButtonGroup color="inherit" variant="text" aria-label="navigation">
               <Button component={NavButton} to="/tracking">
                 Відстежити
               </Button>
-              <Button component={NavButton} to="/offices">
+              <Button component={NavButton} to="/branches">
                 Відділення
               </Button>
             </ButtonGroup>
@@ -45,4 +41,3 @@ export default function SharedHeader() {
     </Box>
   );
 }
-
